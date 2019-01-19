@@ -1,0 +1,17 @@
+.inputSection {
+  display: flex;
+  align-items: center;
+  dsg-input {
+    padding-right: 10px;
+  }
+}
+
+.wrapper {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  height: 100vh;
+  padding-top: 40px;
+}
