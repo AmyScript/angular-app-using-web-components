@@ -1,9 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
 .inputSection {
   display: flex;
   align-items: center;
-  dsg-input {
-    padding-right: 10px;
-  }
+  width: 300px;
+}
+
+dsg-input {
+  padding-right: 10px;
+  width: 100%;
 }
 
 .wrapper {
@@ -14,4 +21,11 @@
   background: rgba(0, 0, 0, 0.05);
   height: 100vh;
   padding-top: 40px;
+}
+
+.weatherWrapper {
+  display: flex;
+  padding-top: 20px;
+  flex-direction: column;
+  align-items: center;
 }

@@ -1,6 +1,16 @@
 <div class="wrapper">
   <div class="inputSection" >
-    <dsg-input [(ngModel)] = "city" id="city-custom-input-element" inputId="city-input"></dsg-input>
-    <dsg-input-button buttonFunction="onSelect" buttonId="my-button"></dsg-input-button>
+    <dsg-input id="city-custom-input-element" inputId="city-input"></dsg-input>
+    <dsg-input-button [buttonFunction]="onSelect" buttonId="city-input-button"></dsg-input-button>
   </div>
+    <div *ngIf="currentConditions" class="weatherWrapper">
+      <dsg-info-card
+        [cardTitle]="city"
+        cardwidth="300px"
+        [heading]="currentConditions.temp_C + '℃'"
+        [imageUrl]="currentConditions.weatherIconUrl[0].value"
+        [text]="currentConditions.weatherDesc[0].value"
+      >
+      </dsg-info-card>
+    </div>
 </div>
