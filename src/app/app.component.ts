@@ -12,7 +12,8 @@ import { getWeatherData } from './getWeatherData';
 
 export class AppComponent implements OnInit {
   title = 'web-components';
-  city = '';
+  cityInput = '';
+  queryCity = '';
   hourlyConditions = [];
   currentConditions = null;
   currentDate = '';
@@ -25,8 +26,8 @@ export class AppComponent implements OnInit {
     document.addEventListener('buttonClicked', async(e: any) => {
       if (e.detail.button === 'city-input-button') {
         const cityInput = <DsgInput>document.getElementById('city-custom-input-element');
-        this.city = cityInput.getAttribute('value');
-        await this.handleCityUpdate(this.city);
+        this.queryCity = cityInput.getAttribute('value');
+        await this.handleCityUpdate(this.queryCity);
       }
     });
   }
@@ -40,7 +41,6 @@ export class AppComponent implements OnInit {
   }
 
   handleCityUpdate = (city) => {
-    city = city;
     let weatherData = '';
     if (city !== '' || city !== undefined) {
       getWeatherData(city).then(res => {
@@ -51,7 +51,8 @@ export class AppComponent implements OnInit {
       });
     }
     const cityInput = <DsgInput>document.getElementById('city-custom-input-element');
-    cityInput.value = '';
+    cityInput.setAttribute('value', '');
+    this.cityInput = '';
   }
 
   onSelect() {
