@@ -1,6 +1,11 @@
 <div class="wrapper">
   <div class="inputSection" >
-    <dsg-input id="city-custom-input-element" inputId="city-input" [city]="cityInput"></dsg-input>
+    <dsg-input
+      id="city-custom-input-element"
+      inputId="city-input"
+      [cityProp]="cityInput"
+      >
+    </dsg-input>
     <dsg-input-button [buttonFunction]="onSelect" buttonId="city-input-button"></dsg-input-button>
   </div>
     <div *ngIf="currentConditions" class="weatherWrapper">

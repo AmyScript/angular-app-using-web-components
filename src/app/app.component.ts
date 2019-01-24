@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit
+} from '@angular/core';
 
 import {DsgInput} from '@amyscript/dsg-input';
 import { getWeatherData } from './getWeatherData';
@@ -7,7 +8,6 @@ import { getWeatherData } from './getWeatherData';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  encapsulation: ViewEncapsulation.None
 })
 
 export class AppComponent implements OnInit {
@@ -19,14 +19,13 @@ export class AppComponent implements OnInit {
   currentDate = '';
   queryLocation = '';
   showHourly = false;
-  constructor() { }
 
   ngOnInit() {
     this.onSelect = this.onSelect.bind(this);
     document.addEventListener('buttonClicked', async(e: any) => {
       if (e.detail.button === 'city-input-button') {
         const cityInput = <DsgInput>document.getElementById('city-custom-input-element');
-        this.queryCity = cityInput.getAttribute('value');
+        this.queryCity = cityInput.getAttribute('cityprop');
         await this.handleCityUpdate(this.queryCity);
       }
     });
@@ -50,12 +49,13 @@ export class AppComponent implements OnInit {
         }
       });
     }
-    const cityInput = <DsgInput>document.getElementById('city-custom-input-element');
-    cityInput.setAttribute('value', '');
-    this.cityInput = '';
+    // clear the input field
+    const cityInputElement = <DsgInput>document.getElementById('city-custom-input-element');
+    cityInputElement.setAttribute('cityprop', '');
   }
 
+
   onSelect() {
-    console.log('button clicked');
+    console.log('Executed callback passed to dsg-input-button');
   }
 }

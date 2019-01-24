@@ -13,8 +13,7 @@ import '@amyscript/dsg-input-button';
     AppComponent
   ],
   imports: [
-    BrowserModule,
-    ReactiveFormsModule
+    BrowserModule
   ],
   providers: [],
   bootstrap: [AppComponent],
